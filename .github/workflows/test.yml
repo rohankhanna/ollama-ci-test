@@ -1,8 +1,10 @@
 name: Ollama CI probe
 
-# Manual only: the first push does NOT run (the OLLAMA_API_KEY secret is not
-# set yet). Trigger by hand once the secret is in place.
+# push: forces GitHub to index the workflow on a brand-new repo AND runs the
+# probe. workflow_dispatch: lets us re-run by hand. (The first push, before the
+# secret was set, would have failed — the secret is now in place.)
 on:
+  push:
   workflow_dispatch:
 
 jobs:
